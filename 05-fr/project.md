@@ -53,9 +53,9 @@ Osoba chcąca zakupić produkt na aukcji.
 * ...
 
 [Kupujący](#ac2)
-* ...
+* [UC2](#uc1): Kupienie produktu
+*...
 
----
 <a id="uc1"></a>
 ### UC1: Wystawienie produktu na aukcję
 
@@ -77,17 +77,28 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Kupno produktu na aukcji 
 
 **Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
 
 **Scenariusz główny:**
-1. ...
+1. [Kupujący](#ac2) licytuje przedmiot 
+2. [Kupujący](#ac2) wpłaca ustaloną kwotę 
+3. System przelewa ustaloną kwotę na konto [Sprzedający](#ac1)
+4. [Sprzedający](#ac1) przekazuje przedmiot (#ac2)[Kupujący]
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+1.A. Nikt nie licytuje przedmiotu
+* 1.A.1. Przedmiot nie zostaje sprzedany
+* 1.A.2. Zakończ licytacje przedmiotu 
+1.B. Cena została dodatkowo podbita
+* 1.B.1. Przedmiot (chwilowo) należy do innej osoby
+* 1.B.2 Przejdź do kroku 1. 
+2.A. Kupujący nie wpłaca ustalanej kwoty
+* 2.A.1 Przedmiot nie jest przekazany kupującemu 
+4.A Sprzedający nie przekazuje przedmiotu
+* 4.A.1 Kupujący zgłasza oszustwo sprzedającego
 
 ---
 
@@ -120,5 +131,9 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 | Przypadek użycia                                  | Aukcja | Produkt | ... |
 | ------------------------------------------------- | ------ | ------- | --- |
 | UC1: Wystawienia produktu na aukcję               |    C   |    C    | ... |
-| ???                                               |  ...   |  ...    | ... |
+| UC2:                                               |  ...   |  ...    | ... |
 
+(#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1))
+3. [Kupujący](#ac2) wygrywa aukcję ([BR2](#br2))
+4. [Kupujący](#ac2) przekazuje należność Sprzedającemu.
+5. [Sprzedający](#ac1) przekazuje produkt Kupującemu.
