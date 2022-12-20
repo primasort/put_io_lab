@@ -16,6 +16,14 @@ public class ExpenseRepositoryTest {
 
     private ExpenseRepository expenseRepository;
     private List<Expense> expenses;
+    
+    @Test
+    void loadExpensesTEST() {
+        MyDatabase mydata = new MyDatabase();
+        ExpenseRepository rep = new ExpenseRepository(mydata);
+        assertEquals(Collections.EMPTY_LIST,rep.getExpenses());
+    }
+
 
     @Test
     void loadExpensesTest() {
